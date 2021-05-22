@@ -1,5 +1,5 @@
 <launch>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find akatsuki_description)/urdf/bot.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find akatsuki_description)/urdf/obito_arm.xacro'"/>
    
    <include file="$(find obito_gazebo)/launch/small_house.launch" /> 
 
