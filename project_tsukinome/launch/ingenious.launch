@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+
+<!-- Manipulation everything -->
+
+    <include file="$(find itachi_manipulation)/launch/bringup.launch"/>
+
+<!-- Navigation everything -->
+
+    <include file="$(find obito_nav)/launch/nav.launch"/>
+
+
+</launch>
+
+
+

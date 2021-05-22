@@ -1,0 +1,10 @@
+<launch>
+<!--  obito bringup robot-->
+<!-- <include file="$(find itachi_manipulation)/launch/bringup.launch" /> -->
+
+<!-- include find object 2d package -->
+<include file="$(find amaterasu)/launch/object_2d.launch" />
+
+
+  
+</launch>

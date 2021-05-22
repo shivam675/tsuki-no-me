@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: akatsuki_description
+    relative_path: urdf/obito_arm.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/obito.srdf
+  CONFIG:
+    author_name: shivam
+    author_email: shivam31199@gmail.com
+    generated_timestamp: 1621335296
