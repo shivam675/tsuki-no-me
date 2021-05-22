@@ -1,0 +1,15 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find akatsuki_description)/urdf/bot.xacro'"/>
+   
+   <include file="$(find akatsuki_description)/launch/emptyworld.launch" /> 
+
+
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="1"/>
+        
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" 
+        args="-urdf -param robot_description -model obito -x $(arg x) -y $(arg y) -z $(arg z)" />
+  
+  
+</launch>

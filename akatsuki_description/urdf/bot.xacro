@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+
+<robot name="obito" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find akatsuki_description)/urdf/bot.gazebo" />
+
+<!--   base of the robot -->
+  
+  <link
+    name="obito_base">
+    <inertial>
+      <origin
+   xyz="0 0.0 0.12"
+        rpy="0 0 0" />
+      <mass
+        value="28" />
+         <inertia ixx="0.356" ixy="0" ixz="0" iyy="0.9443" iyz="0" izz="1.008"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://akatsuki_description/meshes/stl/new_chassis.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+    <origin
+        xyz="0 0.0 0"
+        rpy="0 0 0" />
+      <geometry>
+     <mesh
+          filename="package://akatsuki_description/meshes/stl/new_chassis.stl" />
+      </geometry>
+    </collision>
+  </link>
+  
+<!-- <link name="base_footprint">
+</link>
+<joint name="base_joint" type="fixed">
+    <origin
+      xyz="0 0 0.12"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="obito_base" />
+</joint>     -->
+
+
+
+
+
+
+
+
+
+
+
+
+ <link
+    name="logo_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.001" />
+          <inertia ixx="0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.00"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://akatsuki_description/meshes/stl/logo.stl"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="logo_joint" type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="obito_base" />
+    <child
+      link="logo_link" />
+  </joint>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- front wheel left -->
+
+  <link
+    name="front_wheel_left">
+    <inertial>
+      <origin
+        xyz="0 0 0.12"
+        rpy="0 0 0" />
+      <mass
+        value="0.7" />
+          <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.0030" iyz="0" izz="0.0035"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://akatsuki_description/meshes/stl/wheel_left.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+         xyz="0 0.025 0"
+        rpy="1.5707 0 0" />
+      <geometry>
+          <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="0.2 0.2 0"
+      rpy="0 0 0" />
+    <parent
+      link="obito_base" />
+    <child
+      link="front_wheel_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+<!-- rear wheel left -->
+  <link
+    name="rear_wheel_left">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.7" />
+           <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.0030" iyz="0" izz="0.0035"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://akatsuki_description/meshes/stl/wheel_left.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+         xyz="0 0.025  0"
+        rpy="1.5707 0 0" />
+      <geometry>
+         <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.2 0.2 0"
+      rpy="0 0 0" />
+    <parent
+      link="obito_base" />
+    <child
+      link="rear_wheel_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+<!--   front wheel right -->
+  <link
+    name="front_wheel_right">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.7" />
+           <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.0030" iyz="0" izz="0.0035"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://akatsuki_description/meshes/stl/wheel_right.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+   <collision>
+      <origin
+         xyz="0 -0.025 0"
+        rpy="1.5707 0 0" />
+      <geometry>
+          <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="0.2 -0.2 0"
+      rpy="0 0 0" />
+    <parent
+      link="obito_base" />
+    <child
+      link="front_wheel_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+<!--   rear wheel right -->
+  <link
+    name="rear_wheel_right">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.7" />
+        <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.0030" iyz="0" izz="0.0035"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://akatsuki_description/meshes/stl/wheel_right.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+   <collision>
+      <origin
+         xyz="0 -0.025 0"
+        rpy="1.5707 0 0" />
+      <geometry>
+          <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.2 -0.2 0"
+      rpy="0 0 0" />
+    <parent
+      link="obito_base" />
+    <child
+      link="rear_wheel_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+
+
+
+
+
+<!-- 
+<joint name="bot_cam_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0 -0.47 0.06" rpy="0 0 0"/>
+    <parent link="obito_base"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>0
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 1.5707"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+
+  <joint name="camera_color_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57 0 1.57"/>
+    <parent link="camera_link"/>
+    <child link="camera_rgb_frame"/>
+  </joint>
+
+  <link name="camera_rgb_frame">
+  </link>
+
+  <joint name="camera_depth_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <parent link="camera_link"/>
+    <child link="camera_depth_frame"/>
+  </joint>
+
+    <link name="camera_depth_frame">
+  </link>
+
+ -->
+
+
+
+
+
+
+<link name="laser">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <inertial>
+      <mass value="0.09"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.040" radius="0.030"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.040" radius="0.030"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0.26 0 0.15"
+      rpy="0 0 -1.571" />
+
+    <parent link="obito_base"/>
+    <child link="laser"/>
+    <axis rpy="0 0 0" xyz="0. 0 0.178"/>
+  </joint>
+
+
+    
+</robot>
